@@ -73,7 +73,7 @@
     <script type="text/javascript">
 		function callAPI(){
 
-			let url = 'http://www.omdbapi.com/?s=Harry&apikey=87d10179';
+			let url = 'https://www.omdbapi.com/?s=Harry&apikey=87d10179';
 				fetch(url)
 				.then((response) => response.json())
 				.then(json => {
@@ -119,7 +119,7 @@
 						
 
 				newTr.addEventListener("click", function(evt){
-				let url2 = 'http://www.omdbapi.com/?i=tt1201607&apikey=87d10179';
+				let url2 = 'https://www.omdbapi.com/?i=tt1201607&apikey=87d10179';
 				fetch(url2)
 				.then((response) => response.json())
 				.then(json => {
