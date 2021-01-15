@@ -92,6 +92,8 @@
 						var td3 = document.createElement('td');
 						var td4 = document.createElement('td');
 						var td5 = document.createElement("td");
+						var img = document.createElement("img");
+
 
 
 
@@ -99,7 +101,9 @@
 						td2.innerHTML = mov.Year;
 						td3.innerHTML = mov.imdbID;
 						td4.innerHTML = mov.Type;
-						td5.innerHTML = mov.Poster;
+						// td5.innerHTML = mov.Poster;
+						img.src = mov.Poster;
+
 						newTr.movielist = {Title:mov.Title, Year:mov.Year, imdbID:mov.imdbID, Type:mov.Type, Poster:mov.Poster}
 
 						
@@ -111,6 +115,8 @@
 						newTr.appendChild(td3);
 						newTr.appendChild(td4);
 						newTr.appendChild(td5);
+						td5.appendChild(img);
+						
 
 				newTr.addEventListener("click", function(evt){
 				let url2 = 'http://www.omdbapi.com/?i=tt1201607&apikey=87d10179';
