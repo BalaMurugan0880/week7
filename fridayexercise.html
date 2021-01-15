@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Movie App</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<style type="text/css">
+		 .searchfield {
+        padding: 25px;
+        font-size: 18px;
+        background: #abb1b8;
+        margin: 20px;
+    }
+	</style>
+</head>
+<body>
+	<div class="container">
+        <div class="row">
+            <div class="col-sm-6 mx-auto">
+                <div class="searchfield">
+                	<label for="moviename">My Movie App</label>
+                	<input type="text" name="moviename" class="form-control" placeholder="Enter Movie Name">
+                	<br>
+                	<button type="submit" onclick="callAPI()" class="btn btn-primary btn-lg btn-block">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 mx-auto">
+                <table class="table table-bordered">
+                	<tr>
+                		<thead>
+                			<th>Title</th>
+                			<th>Year</th>
+                			<th>imbID</th>
+                			<th>Type</th>
+                			<th>Poster</th>
+
+                		</thead>
+
+                	</tr>
+                	<tr>
+                		<tbody id="movielist">
+
+                			
+                		</tbody>
+                	</tr>
+                </table>
+        </div>       
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 mx-auto">
+                <div class="searchfield">
+                	<p>Poster</p>
+                	<p>Title:</p>
+                	<p>Actors:</p>
+                	<p>Director:</p>
+                	<p>Language:</p>
+                	<p>Plot:</p>
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+</div>
+
+
+    <script type="text/javascript">
+		function callAPI(){
+
+			let url = 'http://www.omdbapi.com/?s=Harry&apikey=87d10179';
+				fetch(url)
+				.then((response) => response.json())
+				.then(json => {
+				  // Do something with the data
+				  console.log(json["Search"] );
+				  var movielist = json["Search"];
+
+
+					for (var i = 0; i < movielist.length;i++){
+						var wod = movielist[i]
+
+						var newTr = document.createElement('tr');
+
+						var td1 = document.createElement('td');
+						var td2 = document.createElement('td');
+						var td3 = document.createElement('td');
+
+	}
+
+
+				});
+
+		}
+	</script>
+
+
+</body>
+</html>
