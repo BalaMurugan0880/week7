@@ -51,16 +51,16 @@
         </div>       
     </div>
 
-    <div class="container">
+    <div class="container" id="details-card">
         <div class="row">
             <div class="col-sm-6 mx-auto">
                 <div class="searchfield">
-                	<p>Poster</p>
-                	<p>Title:</p>
-                	<p>Actors:</p>
-                	<p>Director:</p>
-                	<p>Language:</p>
-                	<p>Plot:</p>
+                	<p><img src="" id="posterImage" width="100"></p>
+                	<p>Title: <span id="titleLabel"></span></p>
+                	<p>Actors: <span id="actorsLabel"></span></p>
+                	<p>Director: <span id="directorLabel"></span></p>
+                	<p>Language: <span id="languageLabel"></span></p>
+                	<p>Plot: <span id="plotLabel"></span></p>
 
 
                 </div>
@@ -112,6 +112,30 @@
 						newTr.appendChild(td4);
 						newTr.appendChild(td5);
 
+				newTr.addEventListener("click", function(evt){
+				let url2 = 'http://www.omdbapi.com/?i=tt1201607&apikey=87d10179';
+				fetch(url2)
+				.then((response) => response.json())
+				.then(json => {
+				  // Do something with the data
+				  console.log(json);
+				  var movieDetails = json;
+		
+
+
+			 document.getElementById("posterImage").src = movieDetails.Poster;
+			document.getElementById("titleLabel").innerHTML = movieDetails.Title;
+			document.getElementById("actorsLabel").innerHTML = movieDetails.Actors;
+			document.getElementById("directorLabel").innerHTML = movieDetails.Director;
+			document.getElementById("languageLabel").innerHTML = movieDetails.Language;
+			document.getElementById("plotLabel").innerHTML = movieDetails.Plot;
+		})
+
+
+
+		})
+
+
 					var movieNames = document.getElementById("movieNames");
 					movieNames.appendChild(newTr);
 
@@ -121,6 +145,11 @@
 
 				
 
+		}
+
+		function test(){
+
+			
 		}
 	</script>
 
